@@ -11,6 +11,12 @@
 		ED08E1412C08789000267A47 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08E1402C08789000267A47 /* ContentView.swift */; };
 		ED08E1432C08789100267A47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED08E1422C08789100267A47 /* Assets.xcassets */; };
 		ED08E1462C08789100267A47 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED08E1452C08789100267A47 /* Preview Assets.xcassets */; };
+		ED08E14D2C087CCE00267A47 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08E14C2C087CCE00267A47 /* SecondView.swift */; };
+		ED08E1502C087E2900267A47 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED08E14F2C087E2900267A47 /* WebViewController.xib */; };
+		ED08E1512C087E2900267A47 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08E14E2C087E2900267A47 /* WebViewController.swift */; };
+		ED08E1552C08994F00267A47 /* navigation.html in Resources */ = {isa = PBXBuildFile; fileRef = ED08E1542C08994F00267A47 /* navigation.html */; };
+		ED3601A42C099AAA00FF86C4 /* ImagePickerHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3601A32C099AAA00FF86C4 /* ImagePickerHelp.swift */; };
+		ED3601A62C09A31C00FF86C4 /* LocationHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3601A52C09A31C00FF86C4 /* LocationHelp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,13 @@
 		ED08E1402C08789000267A47 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ED08E1422C08789100267A47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED08E1452C08789100267A47 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ED08E14C2C087CCE00267A47 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
+		ED08E14E2C087E2900267A47 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		ED08E14F2C087E2900267A47 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		ED08E1542C08994F00267A47 /* navigation.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = navigation.html; sourceTree = "<group>"; };
+		ED08E15A2C08B3CE00267A47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		ED3601A32C099AAA00FF86C4 /* ImagePickerHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerHelp.swift; sourceTree = "<group>"; };
+		ED3601A52C09A31C00FF86C4 /* LocationHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +64,15 @@
 		ED08E13D2C08789000267A47 /* kidomo */ = {
 			isa = PBXGroup;
 			children = (
+				ED08E15A2C08B3CE00267A47 /* Info.plist */,
 				ED08E13E2C08789000267A47 /* kidomoApp.swift */,
 				ED08E1402C08789000267A47 /* ContentView.swift */,
+				ED08E14C2C087CCE00267A47 /* SecondView.swift */,
+				ED08E14E2C087E2900267A47 /* WebViewController.swift */,
+				ED08E14F2C087E2900267A47 /* WebViewController.xib */,
+				ED3601A32C099AAA00FF86C4 /* ImagePickerHelp.swift */,
+				ED3601A52C09A31C00FF86C4 /* LocationHelp.swift */,
+				ED08E1542C08994F00267A47 /* navigation.html */,
 				ED08E1422C08789100267A47 /* Assets.xcassets */,
 				ED08E1442C08789100267A47 /* Preview Content */,
 			);
@@ -125,6 +145,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED08E1502C087E2900267A47 /* WebViewController.xib in Resources */,
+				ED08E1552C08994F00267A47 /* navigation.html in Resources */,
 				ED08E1462C08789100267A47 /* Preview Assets.xcassets in Resources */,
 				ED08E1432C08789100267A47 /* Assets.xcassets in Resources */,
 			);
@@ -137,8 +159,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED08E14D2C087CCE00267A47 /* SecondView.swift in Sources */,
+				ED3601A42C099AAA00FF86C4 /* ImagePickerHelp.swift in Sources */,
 				ED08E1412C08789000267A47 /* ContentView.swift in Sources */,
+				ED3601A62C09A31C00FF86C4 /* LocationHelp.swift in Sources */,
 				ED08E13F2C08789000267A47 /* kidomoApp.swift in Sources */,
+				ED08E1512C087E2900267A47 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +301,12 @@
 				DEVELOPMENT_TEAM = BRVVVLG5ZB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = kidomo/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "The application needs the camera permission in order to take pictures.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app need your location to provide best feature based on location";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This app need your location to provide best feature based on location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app need your location to provide best feature based on location";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +336,12 @@
 				DEVELOPMENT_TEAM = BRVVVLG5ZB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = kidomo/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "The application needs the camera permission in order to take pictures.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app need your location to provide best feature based on location";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This app need your location to provide best feature based on location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app need your location to provide best feature based on location";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
