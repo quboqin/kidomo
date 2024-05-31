@@ -17,6 +17,8 @@
 		ED08E1552C08994F00267A47 /* navigation.html in Resources */ = {isa = PBXBuildFile; fileRef = ED08E1542C08994F00267A47 /* navigation.html */; };
 		ED3601A42C099AAA00FF86C4 /* ImagePickerHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3601A32C099AAA00FF86C4 /* ImagePickerHelp.swift */; };
 		ED3601A62C09A31C00FF86C4 /* LocationHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3601A52C09A31C00FF86C4 /* LocationHelp.swift */; };
+		ED3601AC2C09BBF900FF86C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED3601AB2C09BBF800FF86C4 /* GoogleService-Info.plist */; };
+		ED3601AF2C09BCBB00FF86C4 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = ED3601AE2C09BCBB00FF86C4 /* FirebaseMessaging */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		ED08E15A2C08B3CE00267A47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		ED3601A32C099AAA00FF86C4 /* ImagePickerHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerHelp.swift; sourceTree = "<group>"; };
 		ED3601A52C09A31C00FF86C4 /* LocationHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelp.swift; sourceTree = "<group>"; };
+		ED3601AB2C09BBF800FF86C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ED3601B02C09BD2200FF86C4 /* kidomo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kidomo.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED3601AF2C09BCBB00FF86C4 /* FirebaseMessaging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +69,7 @@
 		ED08E13D2C08789000267A47 /* kidomo */ = {
 			isa = PBXGroup;
 			children = (
+				ED3601B02C09BD2200FF86C4 /* kidomo.entitlements */,
 				ED08E15A2C08B3CE00267A47 /* Info.plist */,
 				ED08E13E2C08789000267A47 /* kidomoApp.swift */,
 				ED08E1402C08789000267A47 /* ContentView.swift */,
@@ -73,6 +79,7 @@
 				ED3601A32C099AAA00FF86C4 /* ImagePickerHelp.swift */,
 				ED3601A52C09A31C00FF86C4 /* LocationHelp.swift */,
 				ED08E1542C08994F00267A47 /* navigation.html */,
+				ED3601AB2C09BBF800FF86C4 /* GoogleService-Info.plist */,
 				ED08E1422C08789100267A47 /* Assets.xcassets */,
 				ED08E1442C08789100267A47 /* Preview Content */,
 			);
@@ -103,6 +110,9 @@
 			dependencies = (
 			);
 			name = kidomo;
+			packageProductDependencies = (
+				ED3601AE2C09BCBB00FF86C4 /* FirebaseMessaging */,
+			);
 			productName = kidomo;
 			productReference = ED08E13B2C08789000267A47 /* kidomo.app */;
 			productType = "com.apple.product-type.application";
@@ -131,6 +141,9 @@
 				Base,
 			);
 			mainGroup = ED08E1322C08789000267A47;
+			packageReferences = (
+				ED3601AD2C09BCBB00FF86C4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = ED08E13C2C08789000267A47 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -147,6 +160,7 @@
 			files = (
 				ED08E1502C087E2900267A47 /* WebViewController.xib in Resources */,
 				ED08E1552C08994F00267A47 /* navigation.html in Resources */,
+				ED3601AC2C09BBF900FF86C4 /* GoogleService-Info.plist in Resources */,
 				ED08E1462C08789100267A47 /* Preview Assets.xcassets in Resources */,
 				ED08E1432C08789100267A47 /* Assets.xcassets in Resources */,
 			);
@@ -295,6 +309,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = kidomo/kidomo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"kidomo/Preview Content\"";
@@ -330,6 +345,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = kidomo/kidomo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"kidomo/Preview Content\"";
@@ -382,6 +398,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ED3601AD2C09BCBB00FF86C4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.27.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ED3601AE2C09BCBB00FF86C4 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED3601AD2C09BCBB00FF86C4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ED08E1332C08789000267A47 /* Project object */;
 }
