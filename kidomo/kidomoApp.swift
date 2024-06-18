@@ -34,6 +34,46 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
+
+        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+        let token = tokenParts.joined()
+        print("Device Token: \(token)")
+        
+
+
+            // Your server's API endpoint
+        let url = URL(string: "https://saas-test.opsfast.com/api/blade-common/firebase-token/update-token")!
+
+        // Create the request
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+
+        // The header
+        let viewModel = MessageViewModel()
+        if let messageData = viewModel.retrieveMessage() {
+            request.allHTTPHeaderFields = [
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Blade-Auth": messageData.BladeAuth,
+                "Authorization": messageData.Authorization
+            ]
+        }
+        
+        // The payload
+        let payload: [String: Any] = ["token": token, "platform": "ios"]
+        request.httpBody = try? JSONSerialization.data(withJSONObject: payload, options: [])
+
+        // Create the task
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error occurred: \(error)")
+            } else if let data = data {
+                let str = String(data: data, encoding: .utf8)
+                print("Received data:\n\(str ?? "")")
+            }
+        }
+
+        // Start the task
+        task.resume()
     }
     
     // Receive displayed notifications for iOS 10 devices.

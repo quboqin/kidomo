@@ -19,6 +19,7 @@
 		ED3601A62C09A31C00FF86C4 /* LocationHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3601A52C09A31C00FF86C4 /* LocationHelp.swift */; };
 		ED3601AC2C09BBF900FF86C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED3601AB2C09BBF800FF86C4 /* GoogleService-Info.plist */; };
 		ED3601AF2C09BCBB00FF86C4 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = ED3601AE2C09BCBB00FF86C4 /* FirebaseMessaging */; };
+		ED6531132C20545B0011BC17 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6531122C20545B0011BC17 /* MessageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		ED3601A52C09A31C00FF86C4 /* LocationHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelp.swift; sourceTree = "<group>"; };
 		ED3601AB2C09BBF800FF86C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ED3601B02C09BD2200FF86C4 /* kidomo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kidomo.entitlements; sourceTree = "<group>"; };
+		ED6531122C20545B0011BC17 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				ED08E14F2C087E2900267A47 /* WebViewController.xib */,
 				ED3601A32C099AAA00FF86C4 /* ImagePickerHelp.swift */,
 				ED3601A52C09A31C00FF86C4 /* LocationHelp.swift */,
+				ED6531122C20545B0011BC17 /* MessageViewModel.swift */,
 				ED08E1542C08994F00267A47 /* navigation.html */,
 				ED3601AB2C09BBF800FF86C4 /* GoogleService-Info.plist */,
 				ED08E1422C08789100267A47 /* Assets.xcassets */,
@@ -177,6 +180,7 @@
 				ED3601A42C099AAA00FF86C4 /* ImagePickerHelp.swift in Sources */,
 				ED08E1412C08789000267A47 /* ContentView.swift in Sources */,
 				ED3601A62C09A31C00FF86C4 /* LocationHelp.swift in Sources */,
+				ED6531132C20545B0011BC17 /* MessageViewModel.swift in Sources */,
 				ED08E13F2C08789000267A47 /* kidomoApp.swift in Sources */,
 				ED08E1512C087E2900267A47 /* WebViewController.swift in Sources */,
 			);

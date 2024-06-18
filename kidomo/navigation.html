@@ -37,11 +37,12 @@
     <h1>Navigation Bar</h1>
 </div>
 
+<button onclick="saveHeader()">Save Header!</button>
+
 <button onclick="showCamera()">Take Photo!</button>
 <div id="images"></div>
 
 <button onclick="fetchLocation()">Fetch Location!</button>
-<div id="images"></div>
 
 <script>
     function goBack() {
@@ -59,6 +60,18 @@
         }
         
         window.webkit.messageHandlers.Callback.postMessage(argument)
+    }
+    
+    function saveHeader() {
+        let header = {
+            'action' : 'header',
+            'auth': {
+                'BladeAuth' : 'bladeAuth_xxx',
+                'Authorization' : 'authorization_xxx'
+            }
+        }
+        
+        window.webkit.messageHandlers.Callback.postMessage(header)
     }
     
     function nativeImageData(data) {

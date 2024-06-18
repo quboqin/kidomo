@@ -144,20 +144,49 @@ extension WebViewController: WKUIDelegate {
 
 extension WebViewController: WKScriptMessageHandler {
     
+    // Function to convert the dictionary to Data
+    func convertToData(_ dictionary: [String: Any]) -> Data? {
+        try? JSONSerialization.data(withJSONObject: dictionary, options: [])
+    }
+
+    // Function to decode the data to MessageData
+    func decodeMessageData(from data: Data) -> MessageData? {
+        let decoder = JSONDecoder()
+        return try? decoder.decode(MessageData.self, from: data)
+    }
+    
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         print("name:\(message.name)")
         print("body:\(message.body)")
         
-        guard let msg = message.body as? [String: String], let action = msg["action"] else { return }
+        guard let msg = message.body as? [String: Any], let action = msg["action"] else { return }
         
         print("action:\(action)")
         
-        if action == "camera" {
+        if action as! String == "camera" {
             imagePicker.showImagePicker(from: self, allowsEditing: false)
-        } else if action == "back" {
+        } else if action as! String == "back" {
             coordinator?.dismiss()
-        } else if action == "location" {
+        } else if action as! String == "location" {
             locationManager.requestLocation()
+        } else if action as! String == "header" {
+            let viewModel = MessageViewModel()
+            
+            if let messageBody = message.body as? [String: Any] {
+                if let jsonData = convertToData(messageBody["auth"] as! [String : Any]) {
+                    print("jsonData:\(jsonData)")
+                    if let messageData = decodeMessageData(from: jsonData) {
+                        // Now you have a MessageData instance
+                        print("BladeAuth: \(messageData.BladeAuth)")
+                        print("Authorization: \(messageData.Authorization)")
+                        viewModel.saveMessage(messageData)
+                    } else {
+                        print("Failed to decode JSON data to MessageData")
+                    }
+                } else {
+                    print("Failed to convert dictionary to JSON data")
+                }
+            }
         }
     }
 }
