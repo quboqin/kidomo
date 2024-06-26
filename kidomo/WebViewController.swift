@@ -54,7 +54,7 @@ class WebViewController: UIViewController {
         // let request = URLRequest(url: url)
         // wKWebView.load(request)
         
-        if let filePath = Bundle.main.path(forResource: "navigation", ofType: "html") {
+        if let filePath = Bundle.main.path(forResource: "index", ofType: "html") {
             let fileURL = URL(fileURLWithPath: filePath)
             let fileDirectory = fileURL.deletingLastPathComponent()
             wKWebView.loadFileURL(fileURL, allowingReadAccessTo: fileDirectory)
@@ -159,17 +159,23 @@ extension WebViewController: WKScriptMessageHandler {
         print("name:\(message.name)")
         print("body:\(message.body)")
         
-        guard let msg = message.body as? [String: Any], let action = msg["action"] else { return }
+        guard let msg = message.body as? [String: Any], let action = msg["action"], let calBackFunction = msg["callback"] else { return }
         
-        print("action:\(action)")
+        print("action:\(action) and callback:\(calBackFunction)")
         
         if action as! String == "camera" {
             imagePicker.showImagePicker(from: self, allowsEditing: false)
         } else if action as! String == "back" {
             coordinator?.dismiss()
+            self.wKWebView.evaluateJavaScript("\(calBackFunction)('swift:hi javascript!')") { any, _ in
+                guard let info = any else {
+                    return
+                }
+                print(info)
+            }
         } else if action as! String == "location" {
             locationManager.requestLocation()
-        } else if action as! String == "header" {
+        } else if action as! String == "set_header" {
             let viewModel = MessageViewModel()
             
             if let messageBody = message.body as? [String: Any] {
