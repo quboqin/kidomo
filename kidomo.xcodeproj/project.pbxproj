@@ -17,7 +17,6 @@
 		ED08E14D2C087CCE00267A47 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08E14C2C087CCE00267A47 /* SecondView.swift */; };
 		ED08E1502C087E2900267A47 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED08E14F2C087E2900267A47 /* WebViewController.xib */; };
 		ED08E1512C087E2900267A47 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08E14E2C087E2900267A47 /* WebViewController.swift */; };
-		ED08E1552C08994F00267A47 /* navigation.html in Resources */ = {isa = PBXBuildFile; fileRef = ED08E1542C08994F00267A47 /* navigation.html */; };
 		ED3601A42C099AAA00FF86C4 /* ImagePickerHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3601A32C099AAA00FF86C4 /* ImagePickerHelp.swift */; };
 		ED3601A62C09A31C00FF86C4 /* LocationHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3601A52C09A31C00FF86C4 /* LocationHelp.swift */; };
 		ED3601AC2C09BBF900FF86C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED3601AB2C09BBF800FF86C4 /* GoogleService-Info.plist */; };
@@ -37,7 +36,6 @@
 		ED08E14C2C087CCE00267A47 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
 		ED08E14E2C087E2900267A47 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		ED08E14F2C087E2900267A47 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
-		ED08E1542C08994F00267A47 /* navigation.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = navigation.html; sourceTree = "<group>"; };
 		ED08E15A2C08B3CE00267A47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		ED3601A32C099AAA00FF86C4 /* ImagePickerHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerHelp.swift; sourceTree = "<group>"; };
 		ED3601A52C09A31C00FF86C4 /* LocationHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelp.swift; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 				ED3601A32C099AAA00FF86C4 /* ImagePickerHelp.swift */,
 				ED3601A52C09A31C00FF86C4 /* LocationHelp.swift */,
 				ED6531122C20545B0011BC17 /* MessageViewModel.swift */,
-				ED08E1542C08994F00267A47 /* navigation.html */,
 				ED00E7172C2BFE28000FEC8E /* index.html */,
 				ED00E71B2C2BFE43000FEC8E /* assets */,
 				ED00E7192C2BFE38000FEC8E /* favicon.ico */,
@@ -172,7 +169,6 @@
 			files = (
 				ED08E1502C087E2900267A47 /* WebViewController.xib in Resources */,
 				ED00E71C2C2BFE43000FEC8E /* assets in Resources */,
-				ED08E1552C08994F00267A47 /* navigation.html in Resources */,
 				ED3601AC2C09BBF900FF86C4 /* GoogleService-Info.plist in Resources */,
 				ED00E7182C2BFE28000FEC8E /* index.html in Resources */,
 				ED08E1462C08789100267A47 /* Preview Assets.xcassets in Resources */,
