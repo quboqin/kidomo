@@ -29,6 +29,8 @@ class WebViewController: UIViewController {
     var locationManager = LocationManager.shared()
     let imagePicker = ImagePicker()
     
+    var taskId: Int = 0
+    
     internal lazy var wKWebView: WKWebView = {
         let config = WKWebViewConfiguration()
         config.userContentController.add(WeakScriptMessageDelegate(scriptDelegate: self), name: "Callback")
@@ -159,22 +161,32 @@ extension WebViewController: WKScriptMessageHandler {
         print("name:\(message.name)")
         print("body:\(message.body)")
         
-        guard let msg = message.body as? [String: Any], let action = msg["action"], let calBackFunction = msg["callback"] else { return }
+        guard let msg = message.body as? [String: Any], let action = msg["action"], let callBackFunction = msg["callback"] else { return }
         
-        print("action:\(action) and callback:\(calBackFunction)")
+        print("action:\(action) and callback:\(callBackFunction)")
         
         if action as! String == "camera" {
-            imagePicker.showImagePicker(from: self, allowsEditing: false)
+            if let messageBody = message.body as? [String: Any] {
+                if let data = messageBody["data"] as? [String : Any] {
+                    taskId = data["taskId"] as! Int
+                    imagePicker.showImagePicker(from: self, allowsEditing: false)
+                }
+            }
         } else if action as! String == "back" {
             coordinator?.dismiss()
-            self.wKWebView.evaluateJavaScript("\(calBackFunction)('swift:hi javascript!')") { any, _ in
+            self.wKWebView.evaluateJavaScript("\(callBackFunction)('swift:hi javascript!')") { any, _ in
                 guard let info = any else {
                     return
                 }
                 print(info)
             }
         } else if action as! String == "location" {
-            locationManager.requestLocation()
+            if let messageBody = message.body as? [String: Any] {
+                if let data = messageBody["data"] as? [String : Any] {
+                    taskId = data["taskId"] as! Int
+                    locationManager.requestLocation()
+                }
+            }
         } else if action as! String == "set_header" {
             let viewModel = MessageViewModel()
             
@@ -208,7 +220,8 @@ extension WebViewController: ImagePickerDelegate {
 
         imagePicker.dismiss(animated: true) {
             let complexData: [String: Any] = [
-                "imgData": string
+                "image": string,
+                "taskId": self.taskId
             ]
             
             // Convert complex data to JSON string
@@ -237,12 +250,25 @@ extension WebViewController: ImagePickerDelegate {
 
 extension WebViewController: LocationManagerDelegate {
     func locationMananger(_ locationManger: LocationManager, didUpdateLocation location: CLLocation) {
-        let locationString = "Latitude: \(location.coordinate.latitude), Longitude: \(location.coordinate.longitude)"
-        self.wKWebView.evaluateJavaScript("getLocation('\(locationString)')") { any, _ in
-            guard let info = any else {
-                return
+        let complexData: [String: Any] = [
+            "taskId": self.taskId,
+            "latitude": location.coordinate.latitude,
+            "longitude": location.coordinate.longitude
+        ]
+        // Convert complex data to JSON string
+        if let jsonData = try? JSONSerialization.data(withJSONObject: complexData, options: []),
+           let jsonString = String(data: jsonData, encoding: .utf8) {
+            
+            // Call JavaScript function with the JSON string
+            let jsCode = "nativeLocationData(\(jsonString));"
+            
+            self.wKWebView.evaluateJavaScript(jsCode) { result, error in
+                if let error = error {
+                    print("Error calling JavaScript: \(error)")
+                } else {
+                    print("JavaScript result: \(String(describing: result))")
+                }
             }
-            print(info)
         }
     }
 }
