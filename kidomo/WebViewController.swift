@@ -56,7 +56,7 @@ class WebViewController: UIViewController {
         // let request = URLRequest(url: url)
         // wKWebView.load(request)
         
-        if let filePath = Bundle.main.path(forResource: "index", ofType: "html") {
+        if let filePath = Bundle.main.path(forResource: "dist/index", ofType: "html") {
             let fileURL = URL(fileURLWithPath: filePath)
             let fileDirectory = fileURL.deletingLastPathComponent()
             wKWebView.loadFileURL(fileURL, allowingReadAccessTo: fileDirectory)

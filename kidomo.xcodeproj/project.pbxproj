@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ED00E7182C2BFE28000FEC8E /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = ED00E7172C2BFE28000FEC8E /* index.html */; };
-		ED00E71A2C2BFE38000FEC8E /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = ED00E7192C2BFE38000FEC8E /* favicon.ico */; };
-		ED00E71C2C2BFE43000FEC8E /* assets in Resources */ = {isa = PBXBuildFile; fileRef = ED00E71B2C2BFE43000FEC8E /* assets */; };
+		ED00E71E2C2F04DC000FEC8E /* dist in Resources */ = {isa = PBXBuildFile; fileRef = ED00E71D2C2F04DB000FEC8E /* dist */; };
 		ED08E13F2C08789000267A47 /* kidomoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08E13E2C08789000267A47 /* kidomoApp.swift */; };
 		ED08E1412C08789000267A47 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08E1402C08789000267A47 /* ContentView.swift */; };
 		ED08E1432C08789100267A47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED08E1422C08789100267A47 /* Assets.xcassets */; };
@@ -25,9 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		ED00E7172C2BFE28000FEC8E /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		ED00E7192C2BFE38000FEC8E /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = favicon.ico; sourceTree = "<group>"; };
-		ED00E71B2C2BFE43000FEC8E /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
+		ED00E71D2C2F04DB000FEC8E /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dist; sourceTree = "<group>"; };
 		ED08E13B2C08789000267A47 /* kidomo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kidomo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED08E13E2C08789000267A47 /* kidomoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kidomoApp.swift; sourceTree = "<group>"; };
 		ED08E1402C08789000267A47 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -84,10 +80,8 @@
 				ED08E14F2C087E2900267A47 /* WebViewController.xib */,
 				ED3601A32C099AAA00FF86C4 /* ImagePickerHelp.swift */,
 				ED3601A52C09A31C00FF86C4 /* LocationHelp.swift */,
+				ED00E71D2C2F04DB000FEC8E /* dist */,
 				ED6531122C20545B0011BC17 /* MessageViewModel.swift */,
-				ED00E7172C2BFE28000FEC8E /* index.html */,
-				ED00E71B2C2BFE43000FEC8E /* assets */,
-				ED00E7192C2BFE38000FEC8E /* favicon.ico */,
 				ED3601AB2C09BBF800FF86C4 /* GoogleService-Info.plist */,
 				ED08E1422C08789100267A47 /* Assets.xcassets */,
 				ED08E1442C08789100267A47 /* Preview Content */,
@@ -168,12 +162,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED08E1502C087E2900267A47 /* WebViewController.xib in Resources */,
-				ED00E71C2C2BFE43000FEC8E /* assets in Resources */,
 				ED3601AC2C09BBF900FF86C4 /* GoogleService-Info.plist in Resources */,
-				ED00E7182C2BFE28000FEC8E /* index.html in Resources */,
+				ED00E71E2C2F04DC000FEC8E /* dist in Resources */,
 				ED08E1462C08789100267A47 /* Preview Assets.xcassets in Resources */,
 				ED08E1432C08789100267A47 /* Assets.xcassets in Resources */,
-				ED00E71A2C2BFE38000FEC8E /* favicon.ico in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
