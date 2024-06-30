@@ -39,9 +39,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         let token = tokenParts.joined()
         print("Device Token: \(token)")
         
-
-
-            // Your server's API endpoint
+        // Your server's API endpoint
         let url = URL(string: "https://saas-test.opsfast.com/api/blade-common/firebase-token/update-token")!
 
         // Create the request

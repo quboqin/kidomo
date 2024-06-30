@@ -9,15 +9,21 @@ import SwiftUI
 
 struct SecondView: View {
     @Environment(\.dismiss) private var dismiss
+    var url: URL?
+
+    init(url: URL?) {
+        self.url = url
+    }
     
     var body: some View {
-        ViewControllerRepresentable {
+        ViewControllerRepresentable(url: url) {
             dismiss()
         }.edgesIgnoringSafeArea(.all).navigationBarBackButtonHidden()
     }
 }
 
 struct ViewControllerRepresentable: UIViewControllerRepresentable {
+    var url: URL?
     var onDismiss: () -> Void
     
     class Coordinator: NSObject {
@@ -39,6 +45,7 @@ struct ViewControllerRepresentable: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> WebViewController {
         let viewController = WebViewController()
         viewController.coordinator = context.coordinator
+        viewController.url = url
         return viewController
     }
     
@@ -47,6 +54,3 @@ struct ViewControllerRepresentable: UIViewControllerRepresentable {
     }
 }
 
-#Preview {
-    SecondView()
-}

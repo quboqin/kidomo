@@ -11,12 +11,18 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
+                Image("Kidomo")
+                    .resizable()
+                    .frame(width: 100, height: 100)
                     .foregroundStyle(.tint)
-                Text("Hello, world!")
-                NavigationLink("Show Second View") {
-                    SecondView()
+                Text("Hello, kidomo!")
+                NavigationLink("Show Opsfast View") {
+                    let urlString = "https://m-saas.opsfast.com/"
+                    let url = URL(string: urlString)!
+                    SecondView(url: url)
+                }
+                NavigationLink("Show Test View") {
+                    SecondView(url: nil)
                 }
             }
             .padding()

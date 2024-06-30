@@ -24,7 +24,7 @@ extension WeakScriptMessageDelegate: WKScriptMessageHandler {
 
 class WebViewController: UIViewController {
     var coordinator: ViewControllerRepresentable.Coordinator?
-    var url: URL!
+    var url: URL?
     
     var locationManager = LocationManager.shared()
     let imagePicker = ImagePicker()
@@ -52,14 +52,15 @@ class WebViewController: UIViewController {
 
         self.view.addSubview(wKWebView)
         
-        // url = URL(string: "https://m-saas.opsfast.com/")
-        // let request = URLRequest(url: url)
-        // wKWebView.load(request)
-        
-        if let filePath = Bundle.main.path(forResource: "dist/index", ofType: "html") {
-            let fileURL = URL(fileURLWithPath: filePath)
-            let fileDirectory = fileURL.deletingLastPathComponent()
-            wKWebView.loadFileURL(fileURL, allowingReadAccessTo: fileDirectory)
+        if let url = url {
+             let request = URLRequest(url: url)
+             wKWebView.load(request)
+        } else {
+            if let filePath = Bundle.main.path(forResource: "dist/index", ofType: "html") {
+                let fileURL = URL(fileURLWithPath: filePath)
+                let fileDirectory = fileURL.deletingLastPathComponent()
+                wKWebView.loadFileURL(fileURL, allowingReadAccessTo: fileDirectory)
+            }
         }
     }
     
@@ -102,7 +103,6 @@ extension WebViewController: WKNavigationDelegate {
         // goBackButton.isEnabled = webView.canGoBack
         // goForwardButton.isEnabled = webView.canGoForward
         navigationItem.title = webView.title
-        
         
         webView.evaluateJavaScript("callFromSwift('swift:hi javascript!')") { any, _ in
             guard let info = any else {
