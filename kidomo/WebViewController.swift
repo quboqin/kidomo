@@ -29,7 +29,7 @@ class WebViewController: UIViewController {
     var locationManager = LocationManager.shared()
     let imagePicker = ImagePicker()
     
-    var taskId: Int = 0
+    var taskId: String = "0"
     
     internal lazy var wKWebView: WKWebView = {
         let config = WKWebViewConfiguration()
@@ -168,7 +168,7 @@ extension WebViewController: WKScriptMessageHandler {
         if action as! String == "camera" {
             if let messageBody = message.body as? [String: Any] {
                 if let data = messageBody["data"] as? [String : Any] {
-                    taskId = data["taskId"] as! Int
+                    taskId = data["taskId"] as! String
                     imagePicker.showImagePicker(from: self, allowsEditing: false)
                 }
             }
@@ -183,7 +183,7 @@ extension WebViewController: WKScriptMessageHandler {
         } else if action as! String == "location" {
             if let messageBody = message.body as? [String: Any] {
                 if let data = messageBody["data"] as? [String : Any] {
-                    taskId = data["taskId"] as! Int
+                    taskId = data["taskId"] as! String
                     locationManager.requestLocation()
                 }
             }
