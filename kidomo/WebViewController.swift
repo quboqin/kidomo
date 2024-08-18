@@ -191,7 +191,7 @@ extension WebViewController: WKScriptMessageHandler {
             let viewModel = MessageViewModel()
             
             if let messageBody = message.body as? [String: Any] {
-                if let jsonData = convertToData(messageBody["auth"] as! [String : Any]) {
+                if let jsonData = convertToData(messageBody["params"] as! [String : Any]) {
                     print("jsonData:\(jsonData)")
                     if let messageData = decodeMessageData(from: jsonData) {
                         // Now you have a MessageData instance
