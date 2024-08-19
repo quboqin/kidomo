@@ -53,8 +53,9 @@ class WebViewController: UIViewController {
         self.view.addSubview(wKWebView)
         
         if let url = url {
-             let request = URLRequest(url: url)
-             wKWebView.load(request)
+            var request = URLRequest(url: url)
+            request.cachePolicy = .reloadIgnoringLocalCacheData
+            wKWebView.load(request)
         } else {
             if let filePath = Bundle.main.path(forResource: "dist/index", ofType: "html") {
                 let fileURL = URL(fileURLWithPath: filePath)
@@ -104,7 +105,7 @@ extension WebViewController: WKNavigationDelegate {
         // goForwardButton.isEnabled = webView.canGoForward
         navigationItem.title = webView.title
         
-        webView.evaluateJavaScript("callFromSwift('swift:hi javascript!')") { any, _ in
+        webView.evaluateJavaScript("window.kidomo_platform = 'ios'") { any, _ in
             guard let info = any else {
                 return
             }
@@ -161,9 +162,11 @@ extension WebViewController: WKScriptMessageHandler {
         print("name:\(message.name)")
         print("body:\(message.body)")
         
-        guard let msg = message.body as? [String: Any], let action = msg["action"], let callBackFunction = msg["callback"] else { return }
         
-        print("action:\(action) and callback:\(callBackFunction)")
+        guard let msg = message.body as? [String: Any], let action = msg["action"] else { return }
+        let callBackFunction = msg["callback"]
+        
+        print("action:\(action) and callback:\(String(describing: callBackFunction))")
         
         if action as! String == "camera" {
             if let messageBody = message.body as? [String: Any] {
@@ -174,11 +177,13 @@ extension WebViewController: WKScriptMessageHandler {
             }
         } else if action as! String == "back" {
             coordinator?.dismiss()
-            self.wKWebView.evaluateJavaScript("\(callBackFunction)('swift:hi javascript!')") { any, _ in
-                guard let info = any else {
-                    return
+            if let callBackFunction = callBackFunction {
+                self.wKWebView.evaluateJavaScript("\(callBackFunction)('swift:hi javascript!')") { any, _ in
+                    guard let info = any else {
+                        return
+                    }
+                    print(info)
                 }
-                print(info)
             }
         } else if action as! String == "location" {
             if let messageBody = message.body as? [String: Any] {

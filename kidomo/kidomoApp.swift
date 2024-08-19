@@ -39,6 +39,18 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         let token = tokenParts.joined()
         print("Device Token: \(token)")
         
+        let tokenViewModel = TokenViewModel()
+
+        // Update the token
+        tokenViewModel.updateToken(token)
+
+        // Access the current token
+        if let currentToken = tokenViewModel.token {
+            print("Current token: \(currentToken)")
+        } else {
+            print("No token saved")
+        }
+        
         // Your server's API endpoint
         let url = URL(string: "https://saas-test.opsfast.com/api/blade-common/firebase-token/update-token")!
 
@@ -118,7 +130,9 @@ struct kidomoApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let urlString = "https://m-saas.opsfast.com/"
+            let url = URL(string: urlString)!
+            SecondView(url: url)
         }
     }
 }

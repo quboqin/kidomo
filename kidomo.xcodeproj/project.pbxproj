@@ -20,6 +20,8 @@
 		ED3601AC2C09BBF900FF86C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED3601AB2C09BBF800FF86C4 /* GoogleService-Info.plist */; };
 		ED3601AF2C09BCBB00FF86C4 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = ED3601AE2C09BCBB00FF86C4 /* FirebaseMessaging */; };
 		ED6531132C20545B0011BC17 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6531122C20545B0011BC17 /* MessageViewModel.swift */; };
+		EDC2A37D2C72F59B00F58186 /* TokenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC2A37C2C72F59B00F58186 /* TokenViewModel.swift */; };
+		EDC2A37F2C72FA8B00F58186 /* SendTokenHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC2A37E2C72FA8B00F58186 /* SendTokenHelp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		ED3601AB2C09BBF800FF86C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ED3601B02C09BD2200FF86C4 /* kidomo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kidomo.entitlements; sourceTree = "<group>"; };
 		ED6531122C20545B0011BC17 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
+		EDC2A37C2C72F59B00F58186 /* TokenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewModel.swift; sourceTree = "<group>"; };
+		EDC2A37E2C72FA8B00F58186 /* SendTokenHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendTokenHelp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +83,11 @@
 				ED08E14E2C087E2900267A47 /* WebViewController.swift */,
 				ED08E14F2C087E2900267A47 /* WebViewController.xib */,
 				ED3601A32C099AAA00FF86C4 /* ImagePickerHelp.swift */,
+				EDC2A37E2C72FA8B00F58186 /* SendTokenHelp.swift */,
 				ED3601A52C09A31C00FF86C4 /* LocationHelp.swift */,
 				ED00E71D2C2F04DB000FEC8E /* dist */,
 				ED6531122C20545B0011BC17 /* MessageViewModel.swift */,
+				EDC2A37C2C72F59B00F58186 /* TokenViewModel.swift */,
 				ED3601AB2C09BBF800FF86C4 /* GoogleService-Info.plist */,
 				ED08E1422C08789100267A47 /* Assets.xcassets */,
 				ED08E1442C08789100267A47 /* Preview Content */,
@@ -180,7 +186,9 @@
 				ED3601A42C099AAA00FF86C4 /* ImagePickerHelp.swift in Sources */,
 				ED08E1412C08789000267A47 /* ContentView.swift in Sources */,
 				ED3601A62C09A31C00FF86C4 /* LocationHelp.swift in Sources */,
+				EDC2A37D2C72F59B00F58186 /* TokenViewModel.swift in Sources */,
 				ED6531132C20545B0011BC17 /* MessageViewModel.swift in Sources */,
+				EDC2A37F2C72FA8B00F58186 /* SendTokenHelp.swift in Sources */,
 				ED08E13F2C08789000267A47 /* kidomoApp.swift in Sources */,
 				ED08E1512C087E2900267A47 /* WebViewController.swift in Sources */,
 			);
