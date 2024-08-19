@@ -11,7 +11,7 @@ class SendTokenHelper {
     
     static func updateFirebaseToken(token: String, completion: @escaping (Result<String, Error>) -> Void) {
         // Your server's API endpoint
-        guard let url = URL(string: "https://saas-test.opsfast.com/api/blade-common/firebase-token/update-token") else {
+        guard let url = URL(string: "https://saas-test.opsfast.com/api/blade-common/firebase-token/update-token?token=\(token)&&platform=ios") else {
             completion(.failure(NetworkError.invalidURL))
             return
         }
@@ -28,17 +28,6 @@ class SendTokenHelper {
                 "Authorization": messageData.Authorization
             ]
         }
-        
-        // The payload
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let payload: [String: Any] = ["token": token, "platform": "ios"]
-        request.httpBody = try? JSONSerialization.data(withJSONObject: payload, options: [])
-        
-        // For debugging:
-        if let jsonString = String(data: request.httpBody!, encoding: .utf8) {
-            print("Request Body (JSON): \(jsonString)")
-        }
-        print("header = \(request.allHTTPHeaderFields!)")
         
         // Create the task
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
