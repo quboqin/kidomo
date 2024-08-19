@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NetworkHelper {
+class SendTokenHelper {
     
     static func updateFirebaseToken(token: String, completion: @escaping (Result<String, Error>) -> Void) {
         // Your server's API endpoint
@@ -24,15 +24,21 @@ class NetworkHelper {
         let viewModel = MessageViewModel()
         if let messageData = viewModel.retrieveMessage() {
             request.allHTTPHeaderFields = [
-                "Content-Type": "application/x-www-form-urlencoded",
                 "Blade-Auth": messageData.BladeAuth,
                 "Authorization": messageData.Authorization
             ]
         }
         
         // The payload
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let payload: [String: Any] = ["token": token, "platform": "ios"]
         request.httpBody = try? JSONSerialization.data(withJSONObject: payload, options: [])
+        
+        // For debugging:
+        if let jsonString = String(data: request.httpBody!, encoding: .utf8) {
+            print("Request Body (JSON): \(jsonString)")
+        }
+        print("header = \(request.allHTTPHeaderFields!)")
         
         // Create the task
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in

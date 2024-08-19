@@ -25,7 +25,7 @@ class TokenViewModel: Codable {
     }
     
     private func saveTokenToStorage() {
-        if let token = token {
+        if token != nil {
             if let encodedData = try? JSONEncoder().encode(self) {
                 UserDefaults.standard.set(encodedData, forKey: tokenKey)
             }

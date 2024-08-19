@@ -203,6 +203,18 @@ extension WebViewController: WKScriptMessageHandler {
                         print("BladeAuth: \(messageData.BladeAuth)")
                         print("Authorization: \(messageData.Authorization)")
                         viewModel.saveMessage(messageData)
+                        
+                        let tokenViewModel = TokenViewModel()
+                        guard let token = tokenViewModel.token else { return }
+                        
+                        SendTokenHelper.updateFirebaseToken(token: token) { result in
+                            switch result {
+                            case .success(let response):
+                                print("Received response: \(response)")
+                            case .failure(let error):
+                                print("Error occurred: \(error)")
+                            }
+                        }
                     } else {
                         print("Failed to decode JSON data to MessageData")
                     }
