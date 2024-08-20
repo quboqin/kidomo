@@ -49,7 +49,9 @@ class WebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         self.view.addSubview(wKWebView)
         
         if let url = url {
@@ -63,9 +65,7 @@ class WebViewController: UIViewController {
                 wKWebView.loadFileURL(fileURL, allowingReadAccessTo: fileDirectory)
             }
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
+        
         locationManager.hostController = self
         
         imagePicker.delegate = self
@@ -75,6 +75,7 @@ class WebViewController: UIViewController {
         // let navigationHeight: CGFloat = 60
         // let toolbarHeight: CGFloat = 44
         // let height = size.height - navigationHeight - toolbarHeight
+        print("width = \(size.width), height = \(size.height)")
         return CGRect(x: 0, y: 0, width: size.width, height: size.height)
     }
     
