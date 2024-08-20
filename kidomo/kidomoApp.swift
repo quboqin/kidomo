@@ -96,7 +96,11 @@ struct kidomoApp: App {
     
     var body: some Scene {
         WindowGroup {
-            let urlString = "https://m-saas.opsfast.com/"
+#if DEBUG
+            let urlString = "https://m-saas.opsfast.com"
+#else
+            let urlString = "https://m.kidomo.app"
+#endif
             let url = URL(string: urlString)!
             SecondView(url: url)
         }

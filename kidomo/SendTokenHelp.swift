@@ -11,7 +11,12 @@ class SendTokenHelper {
     
     static func updateFirebaseToken(token: String, completion: @escaping (Result<String, Error>) -> Void) {
         // Your server's API endpoint
-        guard let url = URL(string: "https://saas-test.opsfast.com/api/blade-common/firebase-token/update-token?token=\(token)&&platform=ios") else {
+#if DEBUG
+        let endpoint = "https://saas-test.opsfast.com/api/blade-common/firebase-token/update-token?"
+#else
+        let endpoint = "https://console.kidomo.app/api/blade-common/firebase-token/update-token?"
+#endif
+        guard let url = URL(string: "\(endpoint)token=\(token)&&platform=ios") else {
             completion(.failure(NetworkError.invalidURL))
             return
         }
